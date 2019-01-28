@@ -89,7 +89,7 @@ public class MyDispatcherServlet extends HttpServlet {
             if (requestParam.equals("String")) {
                 for (Entry<String, String[]> param : parameterMap.entrySet()) {
                     String value =null;
-                    value = Arrays.toString(param.getValue()).replaceAll("[|]", "").replaceAll(",s", ",");
+                    value = Arrays.toString(param.getValue()).replaceAll("\\[|\\]", "").replaceAll(",s", ",");
                     paramValues[i] = value;
                 }
             }
