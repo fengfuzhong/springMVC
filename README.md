@@ -26,16 +26,16 @@
        ⑾ DispatcherServlet响应用户。
        
 ### 2、SpringMVC的九大组件
-      1. 前端控制器组件（DispatcherServlet） 
-      2. 处理器组件（Controller） 
-      3. 处理器映射器组件（HandlerMapping） 
-      4. 处理器适配器组件（HandlerAdapter） 
-      5. 拦截器组件（HandlerInterceptor） 
-      6. 视图解析器组件（ViewResolver） 
-      7. 视图组件（View） 
-      8. 数据转换组件（DataBinder） 
-      9. 消息转换器组件（HttpMessageConverter）
-####以下代码是对DispatcherServlet中的initStrategies方法进行简单描述：
+      ⑴ 前端控制器组件（DispatcherServlet） 
+      ⑵ 处理器组件（Controller） 
+      ⑶ 处理器映射器组件（HandlerMapping） 
+      ⑷ 处理器适配器组件（HandlerAdapter） 
+      ⑸ 拦截器组件（HandlerInterceptor） 
+      ⑹ 视图解析器组件（ViewResolver） 
+      ⑺ 视图组件（View） 
+      ⑻ 数据转换组件（DataBinder） 
+      ⑼ 消息转换器组件（HttpMessageConverter）
+#### 以下代码是对DispatcherServlet中的initStrategies方法进行简单描述：
 ```
 protected void initStrategies(ApplicationContext context) {
  //用于处理上传请求。处理方法是将普通的request包装成MultipartHttpServletRequest，后者可以直接调用getFile方法获取File.
