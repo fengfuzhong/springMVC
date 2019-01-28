@@ -73,3 +73,6 @@ JDK1.5之后内部提供的三个注解：
        @Deprecated 意思是“废弃的，过时的”
        @Override 意思是“重写、覆盖”
        @SuppressWarnings 意思是“压缩警告”
+       
+  总结：注解(Annotation)相当于一种标记，在程序中加入注解就等于为程序打上某种标记，没有加，则等于没有任何标记，以后，javac编译器、开发工具和其他程序可以通过反射来了解你的类及各种元素上有无何种标记，看你的程序有什么标记，就去干相应的事，标记可以加在包、类，属性、方法，方法的参数以及局部变量上。
+ ![注解应用结构图](https://github.com/fengfuzhong/springMVC/blob/master/src/main/resources/images/%E6%B3%A8%E8%A7%A3%E5%BA%94%E7%94%A8%E7%BB%93%E6%9E%84%E5%9B%BE.jpg)
