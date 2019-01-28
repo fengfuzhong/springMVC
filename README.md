@@ -66,4 +66,10 @@ protected void initStrategies(ApplicationContext context) {
 ```
 ## 自定义SpringMVC框架之前了解的几个知识点：
 ### 自定义注解（Annotation）
+#### 1、认识注解
+##### 注解(Annotation)很重要，未来的开发模式都是基于注解的，JPA是基于注解的，Spring2.5以上都是基于注解的，Hibernate3.x以后也是基于注解的，现在的Struts2有一部分也是基于注解的了，注解是一种趋势，现在已经有不少的人开始用注解了，注解是JDK1.5之后才有的新特性。
+JDK1.5之后内部提供的三个注解：
 
+       @Deprecated 意思是“废弃的，过时的”
+       @Override 意思是“重写、覆盖”
+       @SuppressWarnings 意思是“压缩警告”
