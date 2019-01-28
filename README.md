@@ -64,7 +64,7 @@ protected void initStrategies(ApplicationContext context) {
  initFlashMapManager(context); 
 }
 ```
-## 自定义SpringMVC框架之前了解的几个知识点：
+## 二、自定义SpringMVC框架之前了解的几个知识点：
 ### 自定义注解（Annotation）
 #### 1、认识注解
 ##### 注解(Annotation)很重要，未来的开发模式都是基于注解的，JPA是基于注解的，Spring2.5以上都是基于注解的，Hibernate3.x以后也是基于注解的，现在的Struts2有一部分也是基于注解的了，注解是一种趋势，现在已经有不少的人开始用注解了，注解是JDK1.5之后才有的新特性。
@@ -249,6 +249,9 @@ public class MyAnnotationTest {
 }
 
 ```
+
+### Servlet(Server Applet)和HttpServlet
+#### 1、Servlet 工作原理解析（https://www.ibm.com/developerworks/cn/java/j-lo-servlet/）
 
 
 
