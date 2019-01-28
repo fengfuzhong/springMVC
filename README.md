@@ -35,8 +35,8 @@
       ⑺ 视图组件（View） 
       ⑻ 数据转换组件（DataBinder） 
       ⑼ 消息转换器组件（HttpMessageConverter）
-#### 以下代码是对DispatcherServlet中的initStrategies方法进行简单描述，该方法调用了DispatcherServlet内部的9个初始化方法，
-#### 分别初始化不同的组件：
+###### 以下代码是对DispatcherServlet中的initStrategies方法进行简单描述，该方法调用了DispatcherServlet内部的9个初始化方法，
+###### 分别初始化不同的组件：
 ```
 protected void initStrategies(ApplicationContext context) {
  //用于处理上传请求。处理方法是将普通的request包装成MultipartHttpServletRequest，后者可以直接调用getFile方法获取File.
@@ -63,3 +63,7 @@ protected void initStrategies(ApplicationContext context) {
  //用来管理FlashMap的，FlashMap主要用在redirect重定向中传递参数。
  initFlashMapManager(context); 
 }
+```
+## 自定义SpringMVC框架之前了解的几个知识点：
+### 自定义注解（Annotation）
+
