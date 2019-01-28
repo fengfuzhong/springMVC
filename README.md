@@ -295,3 +295,4 @@ public class MyAnnotationTest {
     （3）通过初始化好的handlerMapping中拿出url对应的方法名，反射调用
    
 ### 工程结构
+![自定义SpringMVC框架示意图]（自定义SpringMVC框架示意图）
