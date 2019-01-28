@@ -252,11 +252,27 @@ public class MyAnnotationTest {
 
 ### Servlet(Server Applet)和HttpServlet
 #### 1、[Servlet 工作原理解析]（https://www.ibm.com/developerworks/cn/java/j-lo-servlet/）
-
-
-
-
-
-
+#### 2、HttpServlet详解
+  
+    Servlet的框架是由两个Java包组成:javax.servlet和 javax.servlet.http. 在javax.servlet包中定义了所有的Servlet类都必须实现或扩展的的通用接口和类.在javax.servlet.http包中定义了采 用HTTP通信协议的HttpServlet类.
+    Servlet的框架的核心是javax.servlet.Servlet接口,所有的Servlet都必须实现这一接口.在Servlet接口中定义了5个方法,其中有3个方法代表了Servlet的声明周期:
+    init方法,负责初始化Servlet对象
+    service方法,负责相应客户的请求
+    destory方法,当Servlet对象退出声明周期时,负责释放占有的资源
+    
+    若web.xml配置文件中<load-on-startup>这个参数的值大于等于0，则是在tomact一启动，则new出来。并且值越小，优先级越高，优先被实例化。若参数的值为负数，则是在输入url时new出来，而在tomcat启动时无任何反应。若是没有配置此参数，相当于参数值为负数。即在输入url运行时才new出来。Servlet在被创建出来实例化时会先调用init（），在服务器停止的时候会调用destroy()。通过继承HttpServlet这个类，并在其子类中重写init()和destroy()方法，就能根据自己的要求在服务器tomcat起来时和结束时运行一些自己的代码逻辑.
+    当Web容器接收到某个Servlet请求时,Servlet把请求封装成一个HttpServletRequest对象,然后把对象传给Servlet的对应的服务方法.
+         HTTP的请求方式包括DELETE,GET,OPTIONS,POST,PUT和TRACE,在HttpServlet类中分别提供了相应的服务方法, 它们是,doDelete(),doGet(),doOptions(),doPost(), doPut()和doTrace(). 
+         
+##### HttpServlet的功能
+    HttpServlet首先必须读取Http请求的内容。Servlet容器负责创建HttpServlet对象，并把Http请求直接封装到 HttpServlet对象中，大大简化了HttpServlet解析请求数据的工作量。HttpServlet容器响应Web客户请求流程如下：
+    （1）Web客户向Servlet容器发出Http请求；
+    （2）Servlet容器解析Web客户的Http请求；
+    （3）Servlet容器创建一个HttpRequest对象，在这个对象中封装Http请求信息；
+    （4）Servlet容器创建一个HttpResponse对象；
+    （5）Servlet容器调用HttpServlet的service方法，把HttpRequest和HttpResponse对象作为service方法的参数传给HttpServlet对象；
+    （6）HttpServlet调用HttpRequest的有关方法，获取HTTP请求信息；
+    （7）HttpServlet调用HttpResponse的有关方法，生成响应数据；
+    （8）Servlet容器把HttpServlet的响应结果传给Web客户。
 
 
