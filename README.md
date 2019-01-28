@@ -74,5 +74,40 @@ JDK1.5之后内部提供的三个注解：
        @Override 意思是“重写、覆盖”
        @SuppressWarnings 意思是“压缩警告”
        
-  总结：注解(Annotation)相当于一种标记，在程序中加入注解就等于为程序打上某种标记，没有加，则等于没有任何标记，以后，javac编译器、开发工具和其他程序可以通过反射来了解你的类及各种元素上有无何种标记，看你的程序有什么标记，就去干相应的事，标记可以加在包、类，属性、方法，方法的参数以及局部变量上。
+   总结：注解(Annotation)相当于一种标记，在程序中加入注解就等于为程序打上某种标记，没有加，则等于没有任何标记，以后，javac编译器、开发工具和其他程序可以通过反射来了解你的类及各种元素上有无何种标记，看你的程序有什么标记，就去干相应的事，标记可以加在包、类，属性、方法，方法的参数以及局部变量上。
+  
  ![注解应用结构图](https://github.com/fengfuzhong/springMVC/blob/master/src/main/resources/images/%E6%B3%A8%E8%A7%A3%E5%BA%94%E7%94%A8%E7%BB%93%E6%9E%84%E5%9B%BE.jpg)
+   注解就相当于一个你的源程序要调用一个类，在源程序中应用某个注解，得事先准备好这个注解类。就像你要调用某个类，得事先开发好这个类。
+  
+ #### 自定义注解及其应用
+```
+package com.feng.annotation;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+/**
+ * 这是一个自定义的注解(Annotation)类 在定义注解(Annotation)类时使用了另一个注解类Retention
+ * 在注解类上使用另一个注解类，那么被使用的注解类就称为元注解
+ * 
+ * @author AlexFeng
+ * 
+ */
+@Retention(RetentionPolicy.RUNTIME)
+//Retention注解决定MyAnnotation注解的生命周期
+@Target( { ElementType.METHOD, ElementType.TYPE })
+//Target注解决定MyAnnotation注解可以加在哪些成分上，如加在类身上，或者属性身上，或者方法身上等成分
+/*
+ * @Retention(RetentionPolicy.SOURCE)
+ * 这个注解的意思是让MyAnnotation注解只在java源文件中存在，编译成.class文件后注解就不存在了
+ * @Retention(RetentionPolicy.CLASS)
+ * 这个注解的意思是让MyAnnotation注解在java源文件(.java文件)中存在，编译成.class文件后注解也还存在，
+ * 被MyAnnotation注解类标识的类被类加载器加载到内存中后MyAnnotation注解就不存在了
+ */
+/*
+ * 这里是在注解类MyAnnotation上使用另一个注解类，这里的Retention称为元注解。
+ * Retention注解括号中的"RetentionPolicy.RUNTIME"意思是让MyAnnotation这个注解的生命周期一直程序运行时都存在
+ */
+public @interface MyAnnotation {
+}
+```
