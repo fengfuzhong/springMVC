@@ -26,7 +26,7 @@
        ⑾ DispatcherServlet响应用户。
        
 ### 2、SpringMVC的运行流程
-`protected void initStrategies(ApplicationContext context) {
+```protected void initStrategies(ApplicationContext context) {
  //用于处理上传请求。处理方法是将普通的request包装成MultipartHttpServletRequest，后者可以直接调用getFile方法获取File.
   initMultipartResolver(context);
  //SpringMVC主要有两个地方用到了Locale：一是ViewResolver视图解析的时候；二是用到国际化资源或者主题的时候。
@@ -50,4 +50,4 @@
  initViewResolvers(context);
  //用来管理FlashMap的，FlashMap主要用在redirect重定向中传递参数。
  initFlashMapManager(context); 
-}`
+}
