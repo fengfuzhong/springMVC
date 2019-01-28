@@ -275,4 +275,23 @@ public class MyAnnotationTest {
     （7）HttpServlet调用HttpResponse的有关方法，生成响应数据；
     （8）Servlet容器把HttpServlet的响应结果传给Web客户。
 
-
+## 自定义SpringMvc框架
+### 设计思路
+#### 1、读取配置
+    SpringMVC本质上是一个Servlet,这个 Servlet 继承自 HttpServlet。FrameworkServlet负责初始化SpringMVC的容器，并将Spring容器设置为父容器。
+    为了读取web.xml中的配置，我们用到ServletConfig这个类，它代表当前Servlet在web.xml中的配置信息。通过web.xml中加载我们自己写的MyDispatcherServlet和读取配置文件。
+   
+#### 2、初始化阶段
+    在前面我们提到DispatcherServlet的initStrategies方法会初始化9大组件，但是这里将实现一些SpringMVC的最基本的组件而不是全部，按顺序包括：
+    （1）加载配置文件，在application.properties文件中配置了需要扫描到SpringMV容器中的包名
+    （2）扫描用户配置包下面所有的类。一般特指controller类，通过判断类注解上是否包含MyController类
+    （3）拿到扫描到的类，通过反射机制，实例化。并且放到ioc容器中(Map的键值对 beanName-bean) beanName默认是首字母小写
+    （4）初始化HandlerMapping，这里其实就是把url和method对应起来放在一个k-v的Map中,在运行阶段取出
+    
+#### 4、运行阶段
+    每一次请求将会调用doGet或doPost方法，所以统一运行阶段都放在doDispatch方法里处理，它会根据url请求去HandlerMapping中匹配到对应的Method，然后利用反射机制调用Controller中的url对应的方法，并得到结果返回。按顺序包括以下功能：
+    （1）异常的拦截
+    （2）获取请求传入的参数并处理参数
+    （3）通过初始化好的handlerMapping中拿出url对应的方法名，反射调用
+   
+### 工程结构
