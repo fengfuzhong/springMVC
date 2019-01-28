@@ -251,7 +251,7 @@ public class MyAnnotationTest {
 ```
 
 ### Servlet(Server Applet)和HttpServlet
-#### 1、Servlet 工作原理解析（https://www.ibm.com/developerworks/cn/java/j-lo-servlet/）
+#### 1、[Servlet 工作原理解析]（https://www.ibm.com/developerworks/cn/java/j-lo-servlet/）
 
 
 
